@@ -19,4 +19,19 @@ public class DefaultNoteService implements NoteService {
     public List<Note> getAllNotes() {
         return noteRepository.findAll();
     }
+
+    @Override
+    public Note getNoteById(Long id) {
+        return noteRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Note saveNote(Note note) {
+        return noteRepository.save(note);
+    }
+
+    @Override
+    public void deleteNoteById(Long id) {
+        noteRepository.deleteById(id);
+    }
 }
